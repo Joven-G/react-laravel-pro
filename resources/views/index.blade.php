@@ -7,6 +7,6 @@
     <title>簡易掲示板</title>
 </head>
 <body>
-    <div class="bg-primary">アホ</div>
+    <div class="text-white">アホなん</div>
 </body>
 </html>
