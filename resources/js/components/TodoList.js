@@ -1,13 +1,24 @@
-import React from "react";
+import React from 'react';
 
-function TodoList() {
+function TodoList(props) {
+
+    const todo_list = props.items;
+
     return (
         <div className="todo-list mt-3">
             <h2>タスク一覧</h2>
+
             <ul>
-                <li><input type="checkbox" /> あいうえお</li>
-                <li><input type="checkbox" checked /> かきくけこ</li>
+                {
+                    todo_list.map((todo, index) => {
+                        return <li className="todo-item" key={index}>
+                            <input type="checkbox" />
+                            <span>{todo}</span>
+                        </li>
+                    })
+                }
             </ul>
+
         </div>
     );
 }

@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
-Route::get('/',[App\Http\Controllers\DisplayController::class,'index']);
-Route::get('/react',[App\Http\Controllers\DisplayController::class,'reactView']);
+Route::get('/index', [App\Http\Controllers\DisplayController::class, 'index']);
+Route::get('/', [App\Http\Controllers\DisplayController::class, 'reactView']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

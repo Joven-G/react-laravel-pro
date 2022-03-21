@@ -17,7 +17,7 @@ function TodoForm() {
 
             <button
                 type="submit"
-                className="btn btn-primary mt-3"
+                className="btn btn-primary"
             >追加</button>
         </form>
     );
