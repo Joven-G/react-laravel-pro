@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[App\Http\Controllers\DisplayController::class,'index']);
+Route::get('/react',[App\Http\Controllers\DisplayController::class,'reactView']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
