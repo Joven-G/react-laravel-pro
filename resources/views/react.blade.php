@@ -13,6 +13,8 @@
         <div id="app"></div>
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <a href="{{ route('form') }}" ;>飛ぶよ！</a>
 </body>
 
 </html>

@@ -13,4 +13,9 @@ class DisplayController extends Controller
     {
         return view('react');
     }
+
+    public function form_test()
+    {
+        return view('Form.form');
+    }
 }
