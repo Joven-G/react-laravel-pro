@@ -1,11 +1,13 @@
+// import { defaultsDeep } from 'lodash';
 import React from 'react';
 
-function TodoForm() {
+function TodoForm(props) {
+
+    const todo_q = props.item;
 
     return (
         <form>
             <h2>タスクの追加</h2>
-
             <div className="form-group">
                 <input
                     type="text"

@@ -12,6 +12,11 @@
     <div class="container py-5">
         <div id="app"></div>
     </div>
+
+    <div id="count"></div>
+
+    <div id='form' class="mt-3"></div>
+
     <script src="{{ asset('js/app.js') }}"></script>
 
     <a href="{{ route('form') }}" ;>飛ぶよ！</a>

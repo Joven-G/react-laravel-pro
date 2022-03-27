@@ -16,11 +16,22 @@
         <div class="card-body">
             <form method="POST" action="{{ route('form_test') }}">
                 {{ csrf_field() }}
-                <div class="mb-3">
+                <div class="form-group mb-3">
                     <label for="exampleInputtext1" class="form-label">text</label>
-                    <input type="text" name="name" class="form-control" id="exampleInputtext1">
+                    <input type="text" name="name" class="form-control" id="exampleInputtext1"
+                        value="{{ old('name') }}">
                 </div>
-                <button type="submit" class="btn btn-primary">送信</button>
+                <div class="form-group">
+                    <label for="formInputEmail">email</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputtext1"
+                        value="{{ old('email') }}">
+                </div>
+                <div class="form-group">
+                    <label for="formInputEmail">password</label>
+                    <input type="password" name="password" class="form-control" id="inputPassword"
+                        value="{{ old('password') }}">
+                </div>
+                <button type="submit" class="mt-3 btn btn-primary">送信</button>
             </form>
         </div>
     </div>

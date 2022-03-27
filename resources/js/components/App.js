@@ -7,6 +7,7 @@ import TodoList from "./TodoList";
 function App() {
 
     const test = ['test1', 'test2', 'test3'];
+    const test1 = ['react'];
 
     return (
         <div className="container">

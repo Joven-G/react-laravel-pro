@@ -14,4 +14,6 @@ require('./bootstrap');
 
 require('./components/Example');
 require('./components/App');
+require('./components/Count.js');
+require('./components/FormReact/form.js');
 
