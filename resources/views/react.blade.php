@@ -17,9 +17,11 @@
 
     <div id='form' class="mt-3"></div>
 
-    <script src="{{ asset('js/app.js') }}"></script>
+
 
     <a href="{{ route('form') }}" ;>飛ぶよ！</a>
+    <a href="{{ route('react_test') }}" ;>reactTestへ！</a>
+
 </body>
 
 </html>

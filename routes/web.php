@@ -20,3 +20,4 @@ Route::get('/', [App\Http\Controllers\DisplayController::class, 'reactView'])->n
 Route::get('/form', [App\Http\Controllers\DisplayController::class, 'form_test'])->name('form');
 Route::post('/form_test', [App\Http\Controllers\FormController::class, 'form_test'])->name('form_test');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/formReactTest',[App\Http\Controllers\DisplayController::class,'formReactTest'])->name('react_test');

@@ -12,8 +12,9 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+require('./components/FormReact/form.js');
 require('./components/Example');
 require('./components/App');
 require('./components/Count.js');
-require('./components/FormReact/form.js');
+require('./components/FormReact/formClassTest.js')
 

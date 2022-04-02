@@ -9,4 +9,7 @@ function Count() {
 
 export default Count;
 
-ReactDOM.render(<Count />, document.getElementById('count'));
+if (document.getElementById('count')) {
+    ReactDOM.render(<Count />, document.getElementById('count'));
+}
+

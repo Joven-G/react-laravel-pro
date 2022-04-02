@@ -1,9 +1,8 @@
-// import { defaultsDeep } from 'lodash';
 import React from 'react';
 
 function TodoForm(props) {
 
-    const todo_q = props.item;
+    // const todo_q = props.item;
 
     return (
         <form>
