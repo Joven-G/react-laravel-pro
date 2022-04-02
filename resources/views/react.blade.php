@@ -23,5 +23,6 @@
     <a href="{{ route('react_test') }}" ;>reactTestへ！</a>
 
 </body>
+<script src="{{ asset('js/app.js') }}"></script>
 
 </html>
