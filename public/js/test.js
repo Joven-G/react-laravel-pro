@@ -1,36 +1,32 @@
 const addButton = () => {
-    const textEl = document.getElementById('add-text');
+    const text = document.getElementById('add-text');
+    const valueText = text.value;
+    text.value = '';
 
-    const text = textEl.value;
-
-    textEl.value = '';
-
+    const div = document.createElement('div');
     const li = document.createElement('li');
 
-    const div = document.createElement('dev');
-
     const p = document.createElement('p');
-    p.textContent = text;
+    p.textContent = valueText;
 
     const button = document.createElement('button');
     button.textContent = '削除';
 
     button.addEventListener('click', () => {
         const deleteTarget = button.closest('li');
-
         document.getElementById('memo-list').removeChild(deleteTarget);
     });
 
+    li.appendChild(div);
     div.appendChild(p);
     div.appendChild(button);
 
-    li.appendChild(div);
-
     document.getElementById('memo-list').appendChild(li);
-};
+}
 
-document.getElementById('add-button').addEventListener('click', () => addButton());
-
+document.getElementById('add-button').addEventListener('click', () => {
+    addButton()
+});
 
 
 
