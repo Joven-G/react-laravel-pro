@@ -11,10 +11,12 @@
 </head>
 
 <body>
+    <div id='const' class="mb-4"></div>
 
     <div id='react_test'></div>
 
     <div id='test'></div>
+
 
     <h1 id='title'>簡単メモアプリ</h1>
     <input id='add-text' />

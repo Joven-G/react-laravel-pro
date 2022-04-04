@@ -29,6 +29,10 @@
         "vue-loader": "^15.9.7"
     },
     "dependencies": {
-        "react-bootstrap": "^2.2.1"
+        "@emotion/react": "^11.8.2",
+        "@emotion/styled": "^11.8.1",
+        "@mui/material": "^5.5.3",
+        "react-bootstrap": "^2.2.1",
+        "react-router-dom": "^6.3.0"
     }
 }
