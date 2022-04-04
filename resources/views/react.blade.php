@@ -9,15 +9,7 @@
 </head>
 
 <body>
-    <div id="const"></div>
-
-    <div class="container py-5">
-        <div id="app"></div>
-    </div>
-
-    <div id="count" class="m-auto w-50"></div>
-    <div id="text1"></div>
-
+    <div id="react"></div>
 
     <a href="{{ route('form') }}" ;>飛ぶよ！</a>
     <a href="{{ route('react_test') }}" ;>reactTestへ！</a>
