@@ -4,21 +4,21 @@ import React, { Component } from "react";
 import ReactDom from "react-dom";
 import Navigation from "./Nav/Navigation";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 
 
 function App() {
     return (
         <Box>
-            <Navigation></Navigation>
-            <Router>
+            <Navigation />
+            <BrowserRouter>
                 <div className="m-5">
                     <Routes>
-                        <Route path="/" exact component={Home} />
+                        <Route path="/" exact element={<Home />} />
                     </Routes>
                 </div>
-            </Router>
+            </BrowserRouter>
         </Box>
     )
 }
