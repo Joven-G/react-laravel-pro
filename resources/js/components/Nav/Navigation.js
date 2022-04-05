@@ -1,10 +1,15 @@
 import React from "react";
 import ReactDom from "react-dom";
-import { NavigationType } from "react-router-dom";
 
 function Navigation() {
     return (
-        <nav></nav>
+        <nav className="navbar navbar-light bg-info">
+            <div className="container-fluid">
+                <a className="navbar-brand" href="#">
+                    Bootstrap
+                </a>
+            </div>
+        </nav>
     )
 }
 
