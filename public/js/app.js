@@ -12543,7 +12543,7 @@ function App() {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
             path: "/",
             exact: true,
-            component: _Home__WEBPACK_IMPORTED_MODULE_3__["default"]
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Home__WEBPACK_IMPORTED_MODULE_3__["default"], {})
           })
         })
       })
