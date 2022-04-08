@@ -6,6 +6,9 @@ import Navigation from "./Nav/Navigation";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 
+import {QueryClient} from "react-query";
+
+const client = new QueryClient();
 
 function App() {
     return (
