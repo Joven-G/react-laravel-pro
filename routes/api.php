@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\ToDoController;
 use App\Http\Controllers\ToDoDetailController;
 use Illuminate\Http\Request;
@@ -22,4 +23,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('toDos', ToDoController::class);
+
 Route::resource('toDoDetails', ToDoDetailController::class);
+
