@@ -2,27 +2,22 @@
 
 namespace Database\Factories;
 
-use App\Models\ToDo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ToDo>
+ */
 class ToDoFactory extends Factory
 {
     /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = ToDo::class;
-
-    /**
      * Define the model's default state.
      *
-     * @return array
+     * @return array<string, mixed>
      */
     public function definition()
     {
         return [
-            'title' => $this->faker->name()
+            //
         ];
     }
 }

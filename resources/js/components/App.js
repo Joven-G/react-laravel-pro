@@ -10,6 +10,7 @@ import {QueryClient} from "react-query";
 
 const client = new QueryClient();
 
+
 function App() {
     return (
         <Box>
