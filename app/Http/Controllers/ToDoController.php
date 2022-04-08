@@ -106,4 +106,3 @@ class ToDoController extends Controller
         // ToDoデータベースから対象のレコードを削除する
         $toDo->delete();
     }
-}
