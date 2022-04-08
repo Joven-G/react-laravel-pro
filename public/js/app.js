@@ -830,7 +830,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var pkg = {
 	name: "@emotion/react",
-	version: "11.8.2",
+	version: "11.9.0",
 	main: "dist/emotion-react.cjs.js",
 	module: "dist/emotion-react.esm.js",
 	browser: {
@@ -859,7 +859,7 @@ var pkg = {
 		"@babel/runtime": "^7.13.10",
 		"@emotion/babel-plugin": "^11.7.1",
 		"@emotion/cache": "^11.7.1",
-		"@emotion/serialize": "^1.0.2",
+		"@emotion/serialize": "^1.0.3",
 		"@emotion/utils": "^1.1.0",
 		"@emotion/weak-memoize": "^0.2.5",
 		"hoist-non-react-statics": "^3.3.1"
@@ -878,7 +878,7 @@ var pkg = {
 	},
 	devDependencies: {
 		"@babel/core": "^7.13.10",
-		"@emotion/css": "11.7.1",
+		"@emotion/css": "11.9.0",
 		"@emotion/css-prettifier": "1.0.1",
 		"@emotion/server": "11.4.0",
 		"@emotion/styled": "11.8.1",
@@ -1241,7 +1241,7 @@ var processStyleValue = function processStyleValue(key, value) {
 };
 
 if (true) {
-  var contentValuePattern = /(attr|counters?|url|(((repeating-)?(linear|radial))|conic)-gradient)\(|(no-)?(open|close)-quote/;
+  var contentValuePattern = /(var|attr|counters?|url|(((repeating-)?(linear|radial))|conic)-gradient)\(|(no-)?(open|close)-quote/;
   var contentValues = ['normal', 'none', 'initial', 'inherit', 'unset'];
   var oldProcessStyleValue = processStyleValue;
   var msPattern = /^-ms-/;
@@ -5209,6 +5209,7 @@ const ListItemButtonRoot = (0,_styles_styled__WEBPACK_IMPORTED_MODULE_7__["defau
   alignItems: 'center',
   position: 'relative',
   textDecoration: 'none',
+  minWidth: 0,
   boxSizing: 'border-box',
   textAlign: 'left',
   paddingTop: 8,
@@ -9303,7 +9304,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _emotion_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @emotion/react */ "./node_modules/@emotion/react/dist/emotion-react.browser.esm.js");
 /* harmony import */ var _StyledEngineProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./StyledEngineProvider */ "./node_modules/@mui/styled-engine/StyledEngineProvider/StyledEngineProvider.js");
 /* harmony import */ var _GlobalStyles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./GlobalStyles */ "./node_modules/@mui/styled-engine/GlobalStyles/GlobalStyles.js");
-/** @license MUI v5.5.2
+/** @license MUI v5.6.0
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9661,6 +9662,7 @@ function resolveBreakpointValues({
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "alpha": () => (/* binding */ alpha),
+/* harmony export */   "colorChannel": () => (/* binding */ colorChannel),
 /* harmony export */   "darken": () => (/* binding */ darken),
 /* harmony export */   "decomposeColor": () => (/* binding */ decomposeColor),
 /* harmony export */   "emphasize": () => (/* binding */ emphasize),
@@ -9768,6 +9770,17 @@ The following color spaces are supported: srgb, display-p3, a98-rgb, prophoto-rg
     colorSpace
   };
 }
+/**
+ * Returns a channel created from the input color.
+ *
+ * @param {string} color - CSS color, i.e. one of: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla()
+ * @returns {string} - The channel for the color, that can be used in rgba or hsla colors
+ */
+
+const colorChannel = color => {
+  const decomposedColor = decomposeColor(color);
+  return decomposedColor.values.slice(0, 3).map((val, idx) => decomposedColor.type.indexOf('hsl') !== -1 && idx !== 0 ? `${val}%` : val).join(' ');
+};
 /**
  * Converts a color object with type and values to a string.
  * @param {object} color - Decomposed color
@@ -18375,7 +18388,7 @@ function Home() {
     spacing: 2,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
       item: true,
-      xs: 3,
+      xs: 6,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Todo_Todo__WEBPACK_IMPORTED_MODULE_2__["default"], {})
     })
   });

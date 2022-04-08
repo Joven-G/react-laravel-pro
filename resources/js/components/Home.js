@@ -6,7 +6,7 @@ import Todo from "./Todo/Todo";
 function Home() {
     return (
         <Grid container spacing={2}>
-            <Grid item xs={3}>
+            <Grid item xs={6}>
                 <Todo />
             </Grid>
 
