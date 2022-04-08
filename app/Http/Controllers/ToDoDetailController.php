@@ -104,6 +104,4 @@ class ToDoDetailController extends Controller
          // ToDoDetailテーブルから対象のレコードを削除する
          $toDoDetail->delete();
     }
-
 }
-
