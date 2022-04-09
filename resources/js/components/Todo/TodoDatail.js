@@ -5,7 +5,7 @@ import React from "react";
 function TodoDetail(props) {
     return (
         <ListItem
-            key={props.id}
+            key={props.detail.id}
             secondaryAction={
                 <IconButton edge="end" aria-label="comments">
                     <Delete />
@@ -16,7 +16,7 @@ function TodoDetail(props) {
                 <ListItemIcon>
                     <Checkbox edge="start" />
                 </ListItemIcon>
-                <ListItemText primary={`Test TodoDetil ${props.id}`} />
+                <ListItemText primary={props.detail.name} />
             </ListItemButton>
         </ListItem>
     );

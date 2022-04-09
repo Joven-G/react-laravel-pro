@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DisplayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('{any}', function () {
-    return view('app');
-})->where('any','.*');
+Route::get('/', [DisplayController::class, 'reactView']);
+Route::get('/form',[DisplayController::class,'form_test'])->name('form');
+Route::get('/form_test',[DisplayController::class,'formReactTest'])->name('react_test');
