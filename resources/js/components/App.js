@@ -6,7 +6,7 @@ import Navigation from "./Nav/Navigation";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 
-import {QueryClient} from "react-query";
+import {QueryClient, QueryClientProvider} from "react-query";
 
 const client = new QueryClient();
 
@@ -16,11 +16,13 @@ function App() {
         <Box>
             <Navigation />
             <BrowserRouter>
-                <div className="m-5">
+                <QueryClientProvider client={client}>
+                <main className="m-5">
                     <Routes>
                         <Route path="/" exact element={<Home />} />
                     </Routes>
-                </div>
+                </main>
+                </QueryClientProvider>
             </BrowserRouter>
         </Box>
     )
