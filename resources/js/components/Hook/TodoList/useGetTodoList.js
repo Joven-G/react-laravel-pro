@@ -7,7 +7,7 @@ const getToDoList = async () => {
     return data;
 }
 
-const useGetTodoList = () => { 
+const useGetTodoList = () => {
     const queryClient = useQueryClient();
     return useQuery("toDoList", getToDoList, {
         onError: () => {

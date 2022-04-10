@@ -1,8 +1,44 @@
 import { Delete } from "@mui/icons-material";
-import { Checkbox, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
-import React from "react";
+import { Checkbox, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, TextField } from "@mui/material";
+import React, { useState } from "react";
+import { useUpdateToDoDetailMutateTask } from "../Hook/ToDoDetail";
 
 function TodoDetail(props) {
+    const [timer, setTimer] = useState(null);
+
+    let toDoDetail = {
+        id: props.detail.id,
+        name: props.detail.name,
+        completed_flag: props.detail.completed_flag == 1,
+    };
+
+    const { updateToDoDetailMutation } = useUpdateToDoDetailMutateTask();
+
+    const eventUpdateTodoDetail = (event) => {
+        clearTimeout(timer);
+
+        const newTimer = setTimeout(() => {
+            let data = {
+                ...toDoDetail,
+                name: event.target.value
+            }
+            updateToDoDetailMutation.mutate(data);
+        }, 500);
+
+        setTimer(newTimer);
+    };
+
+    const eventCheckTodoDetail = (event) => {
+        let data = {
+            ...toDoDetail,
+            completed_flag: event.target.checked
+        }
+        updateToDoDetailMutation.mutate(data);
+    };
+
+
+
+
     return (
         <ListItem
             key={props.detail.id}
@@ -14,9 +50,19 @@ function TodoDetail(props) {
             disablePadding>
             <ListItemButton>
                 <ListItemIcon>
-                    <Checkbox edge="start" />
+                    <Checkbox
+                        edge="start"
+                        defaultChecked={props.detail.completed_flag == 1}
+                        onChange={eventCheckTodoDetail}
+                    />
                 </ListItemIcon>
-                <ListItemText primary={props.detail.name} />
+                <TextField
+                    variant="standard"
+                    margin="dense"
+                    defaultValue={props.detail.name}
+                    fullWidth
+                    onChange={eventUpdateTodoDetail}
+                />
             </ListItemButton>
         </ListItem>
     );

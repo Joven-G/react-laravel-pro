@@ -1,1 +1,1 @@
-export {default as useUpdateToDoMutateTask} from './useUpdateToDoMutateTask';
+export { default as useUpdateToDoMutateTask } from './useUpdateToDoMutateTask';
