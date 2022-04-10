@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useUpdateToDoDetailMutateTask } from "../Hook/ToDoDetail";
 
 function TodoDetail(props) {
-    const [timer, setTimer] = useState(null);
+    const [timer, setTimer] = useState();
 
     let toDoDetail = {
         id: props.detail.id,
