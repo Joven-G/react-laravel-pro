@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, List, TextField } from "@mui/material";
 import React, { useState } from "react";
-import useUpdateToDoMutateTask from "../Hook/Todo/useUpdateToDoMutateTask";
+import {useUpdateToDoMutateTask} from "../Hook/Todo";
 import TodoDetail from "./TodoDatail";
 
 function Todo(props) {
@@ -18,7 +18,7 @@ function Todo(props) {
         const newTimer = setTimeout(() => {
             let data = {
                 ...toDo,
-                title: event.target.value,
+                title: event.target.value
             };
             updateToDoMutation.mutate(data);
         }, 500);
@@ -32,7 +32,8 @@ function Todo(props) {
                 variant="standard"
                 margin="dense"
                 defaultValue={props.toDo.title}
-                fullWidth />
+                fullWidth
+                onChange={eventUpdateTodo} />
             <CardContent>
                 <List>
                     {props.toDo.to_do_details.map((detail) => {
