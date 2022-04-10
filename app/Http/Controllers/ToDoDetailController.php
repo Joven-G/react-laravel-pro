@@ -35,18 +35,18 @@ class ToDoDetailController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store( StoreRequest $request )
     {
-         // 新規のToDoDetailモデルを作成する
-         $toDoDetail = new ToDoDetail();
+        // 新規のToDoDetailモデルを作成する
+        $toDoDetail = new ToDoDetail();
 
-         // ToDoDetailに値を設定する
-         $toDoDetail->to_do_id = $request->get('to_do_id');
-         $toDoDetail->name = $request->get('name');
-         $toDoDetail->completed_flag = false;
- 
-         // DBにデータを登録する
-         $toDoDetail->save();
+        // ToDoDetailに値を設定する
+        $toDoDetail->to_do_id       = $request->get( 'to_do_id' );
+        $toDoDetail->name           = $request->get( 'name' );
+        $toDoDetail->completed_flag = false;
+
+        // DBにデータを登録する
+        $toDoDetail->save();
     }
 
     /**
@@ -55,7 +55,7 @@ class ToDoDetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show( $id )
     {
         //
     }
@@ -66,7 +66,7 @@ class ToDoDetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit( $id )
     {
         //
     }
@@ -78,14 +78,15 @@ class ToDoDetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request, $id)
+    public function update( UpdateRequest $request, $id )
     {
         // IDに紐づくToDoDetailモデルを取得する
-        $toDoDetail = ToDoDetail::find($id);
+        $toDoDetail = ToDoDetail::find( $id );
 
-        // ネームをToDoDetailモデルに設定する
-        $toDoDetail->name = $request->get('name');
-     
+        // ToDoDetailモデルに設定する
+        $toDoDetail->name           = $request->get( 'name' );
+        $toDoDetail->completed_flag = $request->get( 'completed_flag' );
+
         // ToDoDetailテーブルを更新する
         $toDoDetail->save();
     }
@@ -96,12 +97,12 @@ class ToDoDetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( $id )
     {
-         // IDに紐づくToDoDetailモデルを取得する
-         $toDoDetail = ToDoDetail::find($id);
+        // IDに紐づくToDoDetailモデルを取得する
+        $toDoDetail = ToDoDetail::find( $id );
 
-         // ToDoDetailテーブルから対象のレコードを削除する
-         $toDoDetail->delete();
+        // ToDoDetailテーブルから対象のレコードを削除する
+        $toDoDetail->delete();
     }
 }
