@@ -11,6 +11,11 @@ class ToDoDetail extends Model
 
     public function toDo()
     {
-        return $this->belongsTo(ToDo::class);
+        return $this->belongsTo( ToDo::class );
     }
+
+    // public function getCompletedFlagAttribute( $value )
+    // {
+    //     return $value == 1;
+    // }
 }

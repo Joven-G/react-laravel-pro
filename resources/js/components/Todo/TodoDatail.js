@@ -1,15 +1,16 @@
 import { Delete } from "@mui/icons-material";
 import { Checkbox, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, TextField } from "@mui/material";
 import React, { useState } from "react";
-import { useUpdateToDoDetailMutateTask } from "../Hook/ToDoDetail";
+import { useDeleteToDoDetailMutateTask, useUpdateToDoDetailMutateTask } from "../Hook/ToDoDetail";
 
 function TodoDetail(props) {
-    const [timer, setTimer] = useState(null);
+    const [timer, setTimer] = useState();
 
     let toDoDetail = {
         id: props.detail.id,
         name: props.detail.name,
         completed_flag: props.detail.completed_flag == 1,
+        // to_do_id: props.detail.to_do_id,
     };
 
     const { updateToDoDetailMutation } = useUpdateToDoDetailMutateTask();
@@ -36,6 +37,13 @@ function TodoDetail(props) {
         updateToDoDetailMutation.mutate(data);
     };
 
+    /**
+     * 削除ボタンイベント
+     */
+    // const { deleteToDoDetailMutation } = useDeleteToDoDetailMutateTask();
+    // const eventDeleteTodoDetail = (event) => {
+    //     deleteToDoDetailMutation.mutate(toDoDetail);
+    // };
 
 
 
@@ -43,7 +51,11 @@ function TodoDetail(props) {
         <ListItem
             key={props.detail.id}
             secondaryAction={
-                <IconButton edge="end" aria-label="comments">
+                <IconButton
+                    edge="end"
+                    aria-label="comments"
+                // onClick={eventDeleteTodoDetail}
+                >
                     <Delete />
                 </IconButton>
             }
@@ -52,7 +64,7 @@ function TodoDetail(props) {
                 <ListItemIcon>
                     <Checkbox
                         edge="start"
-                        defaultChecked={props.detail.completed_flag == 1}
+                        checked={props.detail.completed_flag == 1}
                         onChange={eventCheckTodoDetail}
                     />
                 </ListItemIcon>
