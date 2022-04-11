@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 
 import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+
 
 const client = new QueryClient();
 
@@ -22,6 +24,7 @@ function App() {
                             <Route path="/" exact element={<Home />} />
                         </Routes>
                     </main>
+                    <ReactQueryDevtools></ReactQueryDevtools>
                 </QueryClientProvider>
             </BrowserRouter>
         </Box>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useMutation, useQueryClient } from "react-query";
+import { QueryClient, useMutation, useQueryClient } from "react-query";
 
 const useUpdateToDoMutateTask = () => {
     const queryClient = useQueryClient();
@@ -20,9 +20,12 @@ const useUpdateToDoMutateTask = () => {
                         return oldToDo;
                     })
                 );
-                return { previousToDoList };
 
+                return { previousToDoList };
             },
+            onSettled: () => {
+                QueryClient.invalidateQueries("toDoList");
+            }
         }
     );
 
