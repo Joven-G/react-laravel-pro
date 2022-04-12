@@ -1,11 +1,10 @@
 import axios from 'axios';
-import { useMutation, useQueryClient } from "react-query";
+import { QueryClient, useMutation, useQueryClient } from "react-query";
 
 const useDeleteToDoDetailMutateTask = () => {
     const queryClient = useQueryClient();
     const deleteToDoDetailMutation = useMutation(
-        (toDoDetail) =>
-            axios.delete("/api/toDoDetails/" + toDoDetail.id),
+        (toDoDetail) => axios.delete("/api/toDoDetails/" + toDoDetail.id),
         {
             onMutate: async (toDoDetail) => {
 
@@ -17,7 +16,7 @@ const useDeleteToDoDetailMutateTask = () => {
                 queryClient.setQueryData("toDoList", (oldToDoList) =>
                     oldToDoList.map((oldToDo) => {
                         let newToDoDetails = [];
-                        oldToDo.to_do_detail.map((oldToDoDetail) => {
+                        oldToDo.to_do_details.map((oldToDoDetail) => {
                             if (oldToDoDetail.id != toDoDetail.id) {
                                 newToDoDetails.push(oldToDoDetail);
                             }

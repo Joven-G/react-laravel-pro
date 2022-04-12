@@ -14,7 +14,7 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
+            'name' => 'nullable|string',
             'completed_flag' => 'required|boolean',
         ];
     }

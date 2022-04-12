@@ -1,7 +1,8 @@
-import { Delete } from "@mui/icons-material";
+import { AddCircle, Delete } from "@mui/icons-material";
 import { Card, CardActions, CardContent, CardHeader, IconButton, List, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { useDeleteToDoMutateTask, useUpdateToDoMutateTask } from "../Hook/Todo";
+import { useStoreToDoDetailMutateTask } from "../Hook/ToDoDetail";
 import TodoDetail from "./TodoDatail";
 
 function Todo(props) {
@@ -27,10 +28,20 @@ function Todo(props) {
 
         setTimer(newTimer);
     }
-
+    /**
+     * 削除処理
+     */
     const { deleteToDoMutation } = useDeleteToDoMutateTask();
     const eventDeleteTodo = (event) => {
         deleteToDoMutation.mutate(toDo);
+    }
+
+    /**
+     * 追加処理
+     */
+    const { storeToDoDetailMutation } = useStoreToDoDetailMutateTask();
+    const eventStoreTodoDetail = (event) => {
+        storeToDoDetailMutation.mutate(toDo);
     }
 
     return (
@@ -49,6 +60,14 @@ function Todo(props) {
                 </List>
             </CardContent>
             <CardActions>
+                <IconButton
+                    edge='start'
+                    aria-label="add"
+                    color="primary"
+                    onClick={eventStoreTodoDetail}
+                >
+                    <AddCircle />
+                </IconButton>
                 <IconButton
                     edge="end"
                     aria-label="delete"

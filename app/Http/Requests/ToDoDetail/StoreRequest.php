@@ -15,7 +15,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'to_do_id' => 'required|exists:to_dos,id',
-            'name' => 'required|string'
+            'name' => 'nullable|string',
         ];
     }
 }
