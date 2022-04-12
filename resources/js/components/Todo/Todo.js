@@ -1,6 +1,7 @@
-import { Card, CardContent, CardHeader, List, TextField } from "@mui/material";
+import { Delete } from "@mui/icons-material";
+import { Card, CardActions, CardContent, CardHeader, IconButton, List, TextField } from "@mui/material";
 import React, { useState } from "react";
-import { useUpdateToDoMutateTask } from "../Hook/Todo";
+import { useDeleteToDoMutateTask, useUpdateToDoMutateTask } from "../Hook/Todo";
 import TodoDetail from "./TodoDatail";
 
 function Todo(props) {
@@ -27,6 +28,11 @@ function Todo(props) {
         setTimer(newTimer);
     }
 
+    const { deleteToDoMutation } = useDeleteToDoMutateTask();
+    const eventDeleteTodo = (event) => {
+        deleteToDoMutation.mutate(toDo);
+    }
+
     return (
         <Card>
             <TextField
@@ -42,6 +48,15 @@ function Todo(props) {
                     })}
                 </List>
             </CardContent>
+            <CardActions>
+                <IconButton
+                    edge="end"
+                    aria-label="delete"
+                    onClick={eventDeleteTodo}
+                >
+                    <Delete />
+                </IconButton>
+            </CardActions>
         </Card>
     )
 }

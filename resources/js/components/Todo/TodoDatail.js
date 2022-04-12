@@ -4,13 +4,13 @@ import React, { useState } from "react";
 import { useDeleteToDoDetailMutateTask, useUpdateToDoDetailMutateTask } from "../Hook/ToDoDetail";
 
 function TodoDetail(props) {
-    const [timer, setTimer] = useState();
+    const [timer, setTimer] = useState(null);
 
     let toDoDetail = {
         id: props.detail.id,
         name: props.detail.name,
-        completed_flag: props.detail.completed_flag == 1,
-        // to_do_id: props.detail.to_do_id,
+        completed_flag: props.detail.completed_flag,
+        to_do_id: props.detail.to_do_id,
     };
 
     const { updateToDoDetailMutation } = useUpdateToDoDetailMutateTask();
@@ -40,10 +40,13 @@ function TodoDetail(props) {
     /**
      * 削除ボタンイベント
      */
-    // const { deleteToDoDetailMutation } = useDeleteToDoDetailMutateTask();
-    // const eventDeleteTodoDetail = (event) => {
-    //     deleteToDoDetailMutation.mutate(toDoDetail);
-    // };
+    const { deleteToDoDetailMutation } = useDeleteToDoDetailMutateTask();
+    const eventDeleteTodoDetail = (event) => {
+        let data = {
+            ...toDoDetail,
+        }
+        deleteToDoDetailMutation.mutate(data);
+    };
 
 
 
@@ -53,8 +56,8 @@ function TodoDetail(props) {
             secondaryAction={
                 <IconButton
                     edge="end"
-                    aria-label="comments"
-                // onClick={eventDeleteTodoDetail}
+                    aria-label="delete"
+                    onClick={eventDeleteTodoDetail}
                 >
                     <Delete />
                 </IconButton>
@@ -64,7 +67,7 @@ function TodoDetail(props) {
                 <ListItemIcon>
                     <Checkbox
                         edge="start"
-                        checked={props.detail.completed_flag == 1}
+                        checked={props.detail.completed_flag}
                         onChange={eventCheckTodoDetail}
                     />
                 </ListItemIcon>

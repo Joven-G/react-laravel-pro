@@ -17,7 +17,7 @@ const useUpdateToDoDetailMutateTask = () => {
                     oldToDoList.map((oldToDo) => {
                         if (oldToDo.id == toDoDetail.to_do_id) {
                             let newToDoDetails = [];
-                            oldToDo.to_do_detail.map((oldToDoDetail) => {
+                            oldToDo.to_do_details.map((oldToDoDetail) => {
                                 if (oldToDoDetail.id == toDoDetail.id) {
                                     newToDoDetails.push({
                                         ...oldToDoDetail,
@@ -25,7 +25,7 @@ const useUpdateToDoDetailMutateTask = () => {
                                         completed_flag: toDoDetail.completed_flag,
                                     });
                                 } else {
-                                    newToDoDetails = push(oldToDoDetail);
+                                    newToDoDetails.push(oldToDoDetail);
                                 }
                             });
                             oldToDo.to_do_details = newToDoDetails;
@@ -33,7 +33,7 @@ const useUpdateToDoDetailMutateTask = () => {
                         return oldToDo;
                     })
 
-                )
+                );
             },
             onSettled: () => {
                 queryClient.invalidateQueries("toDolist");
