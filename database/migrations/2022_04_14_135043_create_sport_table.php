@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTodoDetailsTable extends Migration
+class CreateSportTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,12 @@ class CreateTodoDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('to_do_details', function (Blueprint $table) {
+        Schema::create( 'sport', function ( Blueprint $table ) {
             $table->id();
-            $table->foreignId('to_do_id')
-            ->references('id')
-            ->on('to_dos')
-            ->onDelete('cascade');
-            $table->string('name');
-            $table->boolean('completed_flag');
+            $table->string( 'name', 30 );
+            $table->text( 'text' );
             $table->timestamps();
-        });
+        } );
     }
 
     /**
@@ -32,6 +28,6 @@ class CreateTodoDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('to_do_details');
+        Schema::dropIfExists( 'sport' );
     }
 }

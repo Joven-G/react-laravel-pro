@@ -11,8 +11,7 @@
 <body>
     <div id="react"></div>
 
-    <a href="{{ route('form') }}" ;>飛ぶよ！</a>
-    <a href="{{ route('react_test') }}" ;>reactTestへ！</a>
+    <a href="{{ route('index') }}" ;>reactTestへ！</a>
 
 </body>
 <script src="{{ asset('js/app.js') }}"></script>

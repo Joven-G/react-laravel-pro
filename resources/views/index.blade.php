@@ -10,7 +10,9 @@
 </head>
 
 <body>
-    <div>アホなん</div>
-</body>
+    <div id="form"></div>
 
+    <a href="{{route('reactView')}}">reactToDoヘ</a>
+</body>
+<script src="{{ asset('js/app.js') }}"></script>
 </html>

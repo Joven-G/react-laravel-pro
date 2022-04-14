@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterToDosTableToTitleNullable extends Migration
+class CreateSportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AlterToDosTableToTitleNullable extends Migration
      */
     public function up()
     {
-        Schema::table( 'dos_table_to_title_nullable', function ( Blueprint $table ) {
-            $table->string( 'title' )->nullable()->change();
+        Schema::create( 'sports', function ( Blueprint $table ) {
+            $table->id();
+            $table->string( 'name', 30 );
+            $table->text( 'text' );
+            $table->timestamps();
         } );
     }
 
@@ -25,8 +28,6 @@ class AlterToDosTableToTitleNullable extends Migration
      */
     public function down()
     {
-        Schema::table( 'dos_table_to_title_nullable', function ( Blueprint $table ) {
-            $table->string( 'title' )->change();
-        } );
+        Schema::dropIfExists( 'sports' );
     }
 }
