@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Sports extends Model
 {
     use HasFactory;
+
+    public function sports()
+    {
+
+    }
 }

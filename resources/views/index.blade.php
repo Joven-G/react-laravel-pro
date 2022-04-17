@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div id="form"></div>
+    <div id="crud"></div>
 
     <a href="{{route('reactView')}}">reactToDoヘ</a>
 </body>

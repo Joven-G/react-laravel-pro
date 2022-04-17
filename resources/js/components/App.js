@@ -8,6 +8,7 @@ import Home from "./Home";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import Sport from "./Sport";
 
 
 const client = new QueryClient();

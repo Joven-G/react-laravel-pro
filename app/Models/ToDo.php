@@ -9,9 +9,11 @@ class ToDo extends Model
 {
     use HasFactory;
 
+    protected $table = "todos";
+
     public function toDoDetails()
     {
-        return $this->hasMany(ToDoDetail::class);
+        return $this->hasMany( ToDoDetail::class );
     }
 
     public function delete()
