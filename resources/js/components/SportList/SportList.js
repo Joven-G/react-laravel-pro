@@ -1,4 +1,5 @@
-import { Checkbox, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Checkbox, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import React from "react";
 
 
@@ -12,25 +13,20 @@ function sportList(props) {
     };
 
     return (
-        <List>
-            {
-                sportLists.map((sports) => {
-                    console.log(sports);
-                    return (
-                        <ListItem>
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    <Checkbox />
-                                </ListItemIcon>
-                                <ListItemText>
-                                    <li>{this.sports.id}</li>
-                                </ListItemText>
-                            </ListItemButton>
-                        </ListItem>
-                    );
-                })
-            }
-        </List>
+        <Accordion>
+            <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+            >
+                <Typography>{sportLists.name}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                <Typography>
+                    {sportLists.text}
+                </Typography>
+            </AccordionDetails>
+        </Accordion>
     );
 }
 

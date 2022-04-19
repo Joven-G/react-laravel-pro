@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\SportsController;
+use App\Http\Controllers\Sport_titleController;
 use App\Http\Controllers\ToDoController;
 use App\Http\Controllers\ToDoDetailController;
 use Illuminate\Http\Request;
@@ -24,3 +26,5 @@ Route::middleware( 'auth:api' )->get( '/user', function ( Request $request ) {
 Route::resource( 'toDos', ToDoController::class );
 Route::resource( 'toDoDetails', ToDoDetailController::class );
 Route::apiResource( 'sports', SportsController::class );
+Route::apiResource( 'players', Sport_titleController::class );
+Route::apiResource( 'sportTitles', PlayerController::class );

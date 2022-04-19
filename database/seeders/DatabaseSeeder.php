@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\ToDo;
-use App\Models\ToDoDetail;
+use App\Models\player;
+use App\Models\sportTitle;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,9 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $todo = ToDo::factory()->create();
-        ToDoDetail::factory(5)->create([
-            'to_do_id' => $todo->id,
-        ]);
+        // $todo = ToDo::factory()->create();
+        // ToDoDetail::factory(5)->create([
+        //     'to_do_id' => $todo->id,
+        // ]);
+        $sport_title = sportTitle::factory()->create();
+        player::factory( 3 )->create( [
+            'sport_title_id' => $sport_title->id,
+        ] );
     }
 }
