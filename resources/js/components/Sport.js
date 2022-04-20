@@ -1,18 +1,18 @@
 import React from "react";
 import Grid from '@mui/material/Grid';
-import { useCurrentSport, useGetSport } from "./Hook/Sports";
+import { useCurrentSports, useGetSports } from "./Hook/Sports";
 import SportList from "./SportList/SportList";
 
 function Sport() {
-    const { isLoading } = useGetSport();
-    const sport = useCurrentSport();
+    const { isLoading } = useGetSports();
+    const sport = useCurrentSports();
     if (isLoading) return "ロード中....!";
 
     return (
         <div>
-            <Grid container spacing={2}>
+            <Grid container spacing={4}>
                 {sport.map((sports) => (
-                    <Grid item key={sports.id} xs={6}>
+                    <Grid item key={sports.id} xs={8}>
                         <SportList list={sports} />
                     </Grid>
                 ))}

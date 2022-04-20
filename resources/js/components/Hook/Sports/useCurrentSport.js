@@ -1,8 +1,8 @@
 import { useQueryClient } from "react-query"
 
-const useCurrentSport = () => {
+const useCurrentSports = () => {
     const queryClient = useQueryClient();
-    return queryClient.getQueryData("sport");
+    return queryClient.getQueryData("sports");
 }
 
-export default useCurrentSport;
+export default useCurrentSports;

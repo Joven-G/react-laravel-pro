@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\player;
 use Illuminate\Http\Request;
 
 class PlayerController extends Controller
@@ -22,7 +23,7 @@ class PlayerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store( Request $request )
     {
         //
     }
@@ -33,7 +34,7 @@ class PlayerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show( $id )
     {
         //
     }
@@ -45,9 +46,15 @@ class PlayerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update( Request $request, $id )
     {
-        //
+        $player = player::find( $id );
+
+        $player->name     = $request->get( 'name' );
+        $player->num      = $request->get( 'num' );
+        $player->position = $request->get( 'position' );
+
+        $player->save();
     }
 
     /**
@@ -56,7 +63,7 @@ class PlayerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( $id )
     {
         //
     }

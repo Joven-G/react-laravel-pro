@@ -1,32 +1,33 @@
-import { Accordion, AccordionDetails, AccordionSummary, Checkbox, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Checkbox, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import React from "react";
+import PlayerList from "./PlayerList";
 
 
 
 function sportList(props) {
-    console.log(props.list.id);
     let sportLists = {
-        id: props.list.id,
-        name: props.list.name,
-        text: props.list.text,
+        title: props.list.title,
     };
-
     return (
-        <Accordion>
-            <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-            >
-                <Typography>{sportLists.name}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-                <Typography>
-                    {sportLists.text}
-                </Typography>
-            </AccordionDetails>
-        </Accordion>
+        <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                <TableHead>
+                    <TableRow>
+                        <TableCell>{sportLists.title}</TableCell>
+                        <TableCell align="right">name</TableCell>
+                        <TableCell align="right">num</TableCell>
+                        <TableCell align="right">position</TableCell>
+                        <TableCell align="right">Delete</TableCell>
+                    </TableRow>
+                </TableHead>
+                {
+                    props.list.players.map((player) => {
+                        return <PlayerList key={player.id} player={player} />;
+                    })
+                }
+            </Table>
+        </TableContainer>
     );
 }
 

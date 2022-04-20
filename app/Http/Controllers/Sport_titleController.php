@@ -14,7 +14,7 @@ class Sport_titleController extends Controller
      */
     public function index()
     {
-        $title = sportTitle::with( 'player' )->get();
+        $title = sportTitle::with( 'players' )->get();
 
         return $title;
     }

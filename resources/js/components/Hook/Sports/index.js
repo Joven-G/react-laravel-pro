@@ -1,2 +1,2 @@
-export { default as useGetSport } from "./useGetSport";
-export { default as useCurrentSport } from "./useCurrentSport";
+export { default as useGetSports } from "./useGetSports";
+export { default as useCurrentSports } from "./useCurrentSport";

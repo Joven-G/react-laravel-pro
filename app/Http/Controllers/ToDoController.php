@@ -17,7 +17,7 @@ class ToDoController extends Controller
     public function index()
     {
         // ToDoを取得する
-        $toDos = ToDo::with('toDoDetails')->get();
+        $toDos = ToDo::with( 'toDoDetails' )->get();
 
         // 取得したToDoを返却する
         return $toDos;
@@ -39,13 +39,13 @@ class ToDoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store( StoreRequest $request )
     {
         // 新規のToDoモデルを作成する
         $toDo = new ToDo();
 
         // タイトルをToDoモデルに設定する
-        $toDo->title = $request->get('title');
+        $toDo->title = $request->get( 'title' );
 
         // DBにデータを登録する
         $toDo->save();
@@ -57,7 +57,7 @@ class ToDoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show( $id )
     {
         //
     }
@@ -68,7 +68,7 @@ class ToDoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit( $id )
     {
         //
     }
@@ -80,13 +80,13 @@ class ToDoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request, $id)
+    public function update( UpdateRequest $request, $id )
     {
         // IDに紐づくToDoモデルを取得する
-        $toDo = ToDo::find($id);
+        $toDo = ToDo::find( $id );
 
         // タイトルをToDoモデルに設定する
-        $toDo->title = $request->get('title');
+        $toDo->title = $request->get( 'title' );
 
         // ToDoデータベースを更新する
         $toDo->save();
@@ -98,10 +98,10 @@ class ToDoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( $id )
     {
         // IDに紐づくToDoモデルを取得する
-        $toDo = ToDo::find($id);
+        $toDo = ToDo::find( $id );
 
         // ToDoデータベースから対象のレコードを削除する
         $toDo->delete();
