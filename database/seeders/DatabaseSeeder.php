@@ -23,5 +23,7 @@ class DatabaseSeeder extends Seeder
         player::factory( 3 )->create( [
             'sport_title_id' => $sport_title->id,
         ] );
+
+        $this->call( UserSeeder::class );
     }
 }
