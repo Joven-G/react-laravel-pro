@@ -1,9 +1,10 @@
 import { IconButton, TableBody, TableCell, TableRow, TextField } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import React, { useState } from "react";
-import usePlayerUpdate from "../Hook/SportsPlayer/PlayerUpdate";
+import { playerUpdate } from "../Hook/SportsPlayer";
 
 function PlayerList(props) {
+    const { updatePlayer } = playerUpdate();
     const [timer, setTimer] = useState(null);
 
     let playerLists = {
@@ -12,8 +13,6 @@ function PlayerList(props) {
         num: props.player.num,
         position: props.player.position
     }
-
-    const { updatePlayer } = usePlayerUpdate();
 
     const eventUpdatePlayer = (event) => {
         clearTimeout(timer);
@@ -38,7 +37,7 @@ function PlayerList(props) {
                 <TableCell component="th" scope="row">
                     {playerLists.id}
                 </TableCell>
-                <TableCell align="right">
+                <TableCell>
                     <TextField
                         variant="standard"
                         margin="dense"

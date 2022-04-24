@@ -32,8 +32,8 @@ const useUpdateToDoDetailMutateTask = () => {
                         }
                         return oldToDo;
                     })
-
                 );
+                return { previousToDoList };
             },
             onSettled: () => {
                 queryClient.invalidateQueries("toDolist");

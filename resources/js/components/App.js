@@ -9,6 +9,7 @@ import Home from "./Home";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import Sport from "./Sport";
+import Auth from "./Auth";
 
 
 const client = new QueryClient();
@@ -23,6 +24,7 @@ function App() {
                     <main className="m-5">
                         <Routes>
                             <Route path="/" exact element={<Home />} />
+                            <Route path="/auth" exact element={<Auth />} />
                         </Routes>
                     </main>
                     <ReactQueryDevtools></ReactQueryDevtools>

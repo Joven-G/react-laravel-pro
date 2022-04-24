@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DisplayController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,5 @@ Route::get( '/', [DisplayController::class, 'reactView'] )->name( 'reactView' );
 Route::get( '/form', [DisplayController::class, 'form_test'] )->name( 'form' );
 Route::get( '/form_test', [DisplayController::class, 'formReactTest'] )->name( 'react_test' );
 Route::get( '/index', [DisplayController::class, 'index'] )->name( 'index' );
+
+Route::post( 'login', [LoginController::class, 'authenticate'] );
