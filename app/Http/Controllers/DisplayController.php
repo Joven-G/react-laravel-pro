@@ -23,4 +23,9 @@ class DisplayController extends Controller
     {
         return view( 'Form.reactFormTest' );
     }
+
+    public function loginAuth()
+    {
+        return view( 'Auth' );
+    }
 }

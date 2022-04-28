@@ -19,5 +19,6 @@ Route::get( '/', [DisplayController::class, 'reactView'] )->name( 'reactView' );
 Route::get( '/form', [DisplayController::class, 'form_test'] )->name( 'form' );
 Route::get( '/form_test', [DisplayController::class, 'formReactTest'] )->name( 'react_test' );
 Route::get( '/index', [DisplayController::class, 'index'] )->name( 'index' );
+Route::get( '/loginAuth', [DisplayController::class, 'loginAuth'] )->name( 'AuthLogin' );
 
 Route::post( 'login', [LoginController::class, 'authenticate'] );

@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDom from "react-dom";
-import { Fab, Grid } from "@mui/material";
+import { Box, Fab, Grid } from "@mui/material";
 import Todo from "./Todo/Todo";
 import { useCurrentTodoList, useGetTodoList } from "./Hook/TodoList";
 import { useStoreToDoMutateTask } from "./Hook/Todo";
 import { Add } from "@mui/icons-material";
+import { Link } from "react-router-dom";
+import Navigation from "./Nav/Navigation";
 
 
 /**スタイル */
@@ -28,7 +30,7 @@ function Home() {
     const toDoList = useCurrentTodoList();
     if (isLoading) return "Loading";
     return (
-        <div>
+        <Box>
             <Grid container spacing={2}>
                 {toDoList.map((toDo) => (
                     <Grid item key={toDo.id} xs={6}>
@@ -44,7 +46,9 @@ function Home() {
             >
                 <Add />
             </Fab>
-        </div>
+
+        </Box>
+
     )
 }
 

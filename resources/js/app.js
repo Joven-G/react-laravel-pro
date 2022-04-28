@@ -14,4 +14,6 @@ require('./bootstrap');
 
 require("./components/App");
 require("./components/Crud");
+require("./components/AuthReact");
+
 

@@ -6,8 +6,6 @@ use App\Http\Controllers\SportsController;
 use App\Http\Controllers\Sport_titleController;
 use App\Http\Controllers\ToDoController;
 use App\Http\Controllers\ToDoDetailController;
-use Doctrine\DBAL\Driver\Middleware;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,13 +21,28 @@ use Illuminate\Support\Facades\Route;
 
 Route::post( 'logout', [LoginController::class, 'logout'] );
 
-Route::group( ['middleware' => ['auth:sanctum']], function () {} );
+// Route::group( ['middleware' => ['auth:sanctum']], function () {
+//     Route::middleware( 'api' )->get( '/user', function ( Request $request ) {
+//         return $request->user();
+//     } );
+// } );
 Route::apiResource( 'sports', SportsController::class );
 Route::apiResource( 'players', PlayerController::class );
 Route::apiResource( 'sportTitles', Sport_titleController::class );
-Route::middleware( 'auth:api' )->get( '/user', function ( Request $request ) {
-    return $request->user();
-} );
 
 Route::resource( 'toDos', ToDoController::class );
 Route::resource( 'toDoDetails', ToDoDetailController::class );
+
+// Route::middleware( 'auth:sanctum' )->group( function () {
+//     Route::get( '/user', function () {
+//         return 'ok';
+//     } );
+// } );
+
+Route::group( ['middleware' => ['auth:sanctum']], function () {
+    Route::get( '/user', function () {
+        return 'ok';
+    } );
+} );
+
+// Route::get( '/getUser', [LoginController::class, 'getUser'] );

@@ -3,6 +3,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import React, { useEffect } from "react";
 import ReactDom from "react-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Navigation() {
 
@@ -58,7 +59,7 @@ function Navigation() {
                         </Menu>
                     </IconButton>
                     <Typography variant="h6" color="inherit" component="div">
-                        React Test
+                        react
                     </Typography>
                 </Toolbar>
             </AppBar>
